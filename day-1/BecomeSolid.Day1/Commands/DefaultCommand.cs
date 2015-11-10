@@ -20,9 +20,9 @@ namespace BecomeSolid.Day1.Commands
             Console.WriteLine("Echo Message: {0}", update.Message.Text);
         }
 
-        public override bool Applicable
-        {
-            get { return true; }
-        }
+        //public override bool Applicable
+        //{
+        //    get { return true; }
+        //}
     }
 }

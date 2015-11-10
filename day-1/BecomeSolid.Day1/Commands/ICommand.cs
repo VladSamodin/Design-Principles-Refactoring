@@ -10,6 +10,6 @@ namespace BecomeSolid.Day1.Commands
     interface ICommand
     {
         Task ExecuteAsync(string arguments, Update update);
-        bool Applicable { get; }
+        //bool Applicable { get; }
     }
 }

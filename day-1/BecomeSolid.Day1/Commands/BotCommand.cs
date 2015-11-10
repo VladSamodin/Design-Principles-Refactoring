@@ -19,6 +19,6 @@ namespace BecomeSolid.Day1.Commands
             this.bot = bot;
         }
 
-        abstract public bool Applicable { get; }
+        //abstract public bool Applicable { get; }
     }
 }
