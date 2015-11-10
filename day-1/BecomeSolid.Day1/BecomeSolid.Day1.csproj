@@ -63,8 +63,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\AiCommand.cs" />
+    <Compile Include="Commands\BotCommand.cs" />
+    <Compile Include="Commands\CommandContainer.cs" />
+    <Compile Include="Commands\DefaultCommand.cs" />
+    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\SendWeatherCommand.cs" />
+    <Compile Include="Models\Clouds.cs" />
+    <Compile Include="Models\Coord.cs" />
+    <Compile Include="Models\Main.cs" />
+    <Compile Include="Models\Rain.cs" />
+    <Compile Include="Models\Sys.cs" />
+    <Compile Include="Models\Weather.cs" />
+    <Compile Include="Models\WeatherMetricsContainer.cs" />
+    <Compile Include="Models\Wind.cs" />
+    <Compile Include="Parsers\InputMessage.cs" />
+    <Compile Include="Parsers\InputMessageParser.cs" />
+    <Compile Include="Parsers\WeatherArguments.cs" />
+    <Compile Include="Parsers\WeatherArgumentsParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IWheatherRepository.cs" />
+    <Compile Include="Repository\OpenWeatherMapRepository.cs" />
+    <Compile Include="Service\IWheatherService.cs" />
+    <Compile Include="Service\WheatherService.cs" />
+    <Compile Include="WaetherMessageBuider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -74,6 +97,7 @@
     <Analyzer Include="..\packages\Microsoft.AnalyzerPowerPack.1.0.1\analyzers\dotnet\cs\Microsoft.AnalyzerPowerPack.Common.dll" />
     <Analyzer Include="..\packages\Microsoft.AnalyzerPowerPack.1.0.1\analyzers\dotnet\cs\Microsoft.AnalyzerPowerPack.CSharp.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
