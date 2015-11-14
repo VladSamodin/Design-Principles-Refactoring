@@ -19,7 +19,6 @@ namespace BecomeSolid.Day1.Commands
             this.service = service;
         }
 
-        //public override async Task ExecuteAsync(string argumentsString, Update update)
         public override async Task ExecuteAsync(Dictionary<string, object> context)
         {
             var argumentsString = context["argumentsString"] as string;
@@ -28,10 +27,9 @@ namespace BecomeSolid.Day1.Commands
             var parser = new WeatherArgumentsParser();
             var arguments = parser.Parse(argumentsString);
 
-            //var service = new WeatherService(new OpenWeatherMapRepository());
             var weatherMetrics = service.GetWeather(arguments.City);
 
-            var messageBuilder = new WaetherMessageBuider();
+            var messageBuilder = new WeatherMessageBuider();
 
             string message = messageBuilder
                 .SetCityName(weatherMetrics.name)
