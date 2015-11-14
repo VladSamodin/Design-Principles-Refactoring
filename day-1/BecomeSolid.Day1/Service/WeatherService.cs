@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace BecomeSolid.Day1.Service
 {
-    class WheatherService : IWheatherService
+    class WeatherService : IWeatherService
     {
-        IWheatherRepository repository;
+        IWeatherRepository repository;
 
-        public WheatherService(IWheatherRepository repository)
+        public WeatherService(IWeatherRepository repository)
         {
             this.repository = repository;
         }

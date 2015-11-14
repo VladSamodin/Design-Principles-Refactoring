@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BecomeSolid.Day1.Repository
 {
-    class OpenWeatherMapRepository : IWheatherRepository
+    class OpenWeatherMapRepository : IWeatherRepository
     {
         private const string urlPattern = "http://api.openweathermap.org/data/2.5/weather?q={0}&APPID={1}&units=metric";
         private const string weatherApiKey = "ec259b32688dc1c1d087ebc30cbff9ed";

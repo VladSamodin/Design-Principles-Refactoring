@@ -2,6 +2,7 @@
 using BecomeSolid.Day1.Repository;
 using BecomeSolid.Day1.Service;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Telegram.Bot;
@@ -11,14 +12,23 @@ namespace BecomeSolid.Day1.Commands
 {
     class WeatherCommand : BotCommand
     {
-        public WeatherCommand(Api bot) : base(bot) { }
+        IWeatherService service;
 
-        public override async Task ExecuteAsync(string argumentsString, Update update)
+        public WeatherCommand(Api bot, IWeatherService service) : base(bot) 
         {
+            this.service = service;
+        }
+
+        //public override async Task ExecuteAsync(string argumentsString, Update update)
+        public override async Task ExecuteAsync(Dictionary<string, object> context)
+        {
+            var argumentsString = context["argumentsString"] as string;
+            var update = context["update"] as Update;
+
             var parser = new WeatherArgumentsParser();
             var arguments = parser.Parse(argumentsString);
 
-            var service = new WheatherService(new OpenWeatherMapRepository());
+            //var service = new WeatherService(new OpenWeatherMapRepository());
             var weatherMetrics = service.GetWeather(arguments.City);
 
             var messageBuilder = new WaetherMessageBuider();

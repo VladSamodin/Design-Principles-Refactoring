@@ -16,6 +16,7 @@ namespace BecomeSolid.Day1
         public CommandContainer(ICommand defaultCommand = null)
         {
             commands = new Dictionary<string, ICommand>();
+            //Сделать проверку на null?
             this.defaultCommand = defaultCommand;
         }
 
@@ -36,11 +37,6 @@ namespace BecomeSolid.Day1
 
         public ICommand GetCommand(string name)
         {
-            //if (!commands.ContainsKey(name))
-            //    return new DefaultCommand();
-            //ConstructorInfo commandConstructor = commands[name].GetType().GetConstructor(new Type[] { });
-            //return (ICommand)commandConstructor.Invoke(new object[] { });
-
             if (!Contains(name))
                 return defaultCommand;
             return commands[name];

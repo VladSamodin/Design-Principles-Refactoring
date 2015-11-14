@@ -4,6 +4,9 @@ using Telegram.Bot;
 using Telegram.Bot.Types;
 using BecomeSolid.Day1.Commands;
 using BecomeSolid.Day1.Parsers;
+using System.Collections.Generic;
+using BecomeSolid.Day1.Service;
+using BecomeSolid.Day1.Repository;
 
 namespace BecomeSolid.Day1
 {
@@ -37,7 +40,14 @@ namespace BecomeSolid.Day1
                         var inputMessage = inputParser.Parse(update.Message.Text);                        
 
                         var command = commandContainer.GetCommand(inputMessage.Command);
-                        await command.ExecuteAsync(inputMessage.Arguments, update);
+                        var context = new Dictionary<string, object> {
+                            {"argumentsString", inputMessage.Arguments},
+                            {"update", update}
+                        };
+                        await command.ExecuteAsync(context);
+
+                        //await command.ExecuteAsync(inputMessage.Arguments, update); // всегда выполняется дефолтное действие
+                                                                                    // получится ли с помощью такого контекста все выполнять в цикле
                     }
 
                     offset = update.Id + 1;
@@ -49,7 +59,7 @@ namespace BecomeSolid.Day1
 
         static void InitCommandContainer(CommandContainer CommandContainer, Api bot)
         {
-            CommandContainer.RegistreCommand("/weather", new WeatherCommand(bot));
+            CommandContainer.RegistreCommand("/weather", new WeatherCommand(bot, new WeatherService(new OpenWeatherMapRepository())));
         }
 
     }

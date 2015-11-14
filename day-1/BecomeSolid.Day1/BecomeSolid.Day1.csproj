@@ -83,10 +83,10 @@
     <Compile Include="Parsers\WeatherArgumentsParser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\IWheatherRepository.cs" />
+    <Compile Include="Repository\IWeatherRepository.cs" />
     <Compile Include="Repository\OpenWeatherMapRepository.cs" />
-    <Compile Include="Service\IWheatherService.cs" />
-    <Compile Include="Service\WheatherService.cs" />
+    <Compile Include="Service\IWeatherService.cs" />
+    <Compile Include="Service\WeatherService.cs" />
     <Compile Include="WaetherMessageBuider.cs" />
   </ItemGroup>
   <ItemGroup>

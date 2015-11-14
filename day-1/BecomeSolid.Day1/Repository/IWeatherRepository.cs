@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BecomeSolid.Day1.Repository
 {
-    interface IWheatherRepository
+    interface IWeatherRepository
     {
         string GetWheaterJson(string cityName);
     }

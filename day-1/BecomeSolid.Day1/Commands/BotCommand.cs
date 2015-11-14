@@ -12,7 +12,7 @@ namespace BecomeSolid.Day1.Commands
     {
         protected Api bot;
 
-        abstract public Task ExecuteAsync(string arguments, Update update);
+        abstract public Task ExecuteAsync(Dictionary<string, object> context);
 
         public BotCommand(Api bot)
         {

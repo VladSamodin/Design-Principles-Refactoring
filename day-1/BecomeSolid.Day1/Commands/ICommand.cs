@@ -9,7 +9,8 @@ namespace BecomeSolid.Day1.Commands
 {
     interface ICommand
     {
-        Task ExecuteAsync(string arguments, Update update);
+        //Task ExecuteAsync(string arguments, Update update);
+        Task ExecuteAsync(Dictionary<string, object> context);
         //bool Applicable { get; }
     }
 }
