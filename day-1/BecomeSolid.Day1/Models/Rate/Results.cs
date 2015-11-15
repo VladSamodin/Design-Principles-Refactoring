@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BecomeSolid.Day1.Repository
+namespace BecomeSolid.Day1.Models.Rate
 {
-    interface IRateRepository
+    public class Results
     {
-        string GetRateJson(IEnumerable<string> currencies);
+        public Rate[] rate { get; set; }
     }
 }

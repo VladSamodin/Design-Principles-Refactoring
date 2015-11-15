@@ -15,8 +15,8 @@ namespace BecomeSolid.Day1.Commands
     class WeatherCommand <T> : BotCommand
         where T : IWeatherMetrics
     {
-        IWeatherService<T> service;
         IWeatherArgumentsParser<IWeatherArguments> parser;
+        IWeatherService<T> service;
         IWeatherMessageBuilder<T> messageBuilder;
 
         public WeatherCommand(Api bot
