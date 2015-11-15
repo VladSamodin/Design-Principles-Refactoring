@@ -5,11 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BecomeSolid.Day1.Service
+namespace BecomeSolid.Day1.Builders
 {
-    interface IWeatherService <out T>
+    interface IWeatherMessageBuilder <in T> : IMessageBuilder<T>
         where T : IWeatherMetrics
     {
-        T GetWeather(string cityName);
     }
 }

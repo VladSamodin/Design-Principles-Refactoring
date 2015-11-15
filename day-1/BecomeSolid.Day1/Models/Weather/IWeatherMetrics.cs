@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BecomeSolid.Day1.Parsers
+namespace BecomeSolid.Day1.Models
 {
-    class WeatherArguments : IWeatherArguments
-    {
-        public string City { get; set; }
+    interface IWeatherMetrics : IEntity
+    { 
     }
 }

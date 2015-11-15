@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BecomeSolid.Day1.Parsers
 {
-    class WeatherArguments : IWeatherArguments
+    interface IWeatherArguments
     {
-        public string City { get; set; }
+        string City { get; set; }
     }
 }

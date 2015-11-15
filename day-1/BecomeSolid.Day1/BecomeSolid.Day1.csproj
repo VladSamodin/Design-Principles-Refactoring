@@ -63,22 +63,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Builders\IMessageBuilder.cs" />
+    <Compile Include="Builders\IWeatherMessageBuilder.cs" />
     <Compile Include="Commands\AiCommand.cs" />
     <Compile Include="Commands\BotCommand.cs" />
     <Compile Include="Commands\CommandContainer.cs" />
     <Compile Include="Commands\DefaultCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\WeatherCommand.cs" />
-    <Compile Include="Models\Clouds.cs" />
-    <Compile Include="Models\Coord.cs" />
-    <Compile Include="Models\Main.cs" />
-    <Compile Include="Models\Rain.cs" />
-    <Compile Include="Models\Sys.cs" />
-    <Compile Include="Models\Weather.cs" />
-    <Compile Include="Models\WeatherMetricsContainer.cs" />
-    <Compile Include="Models\Wind.cs" />
+    <Compile Include="Models\IEntity.cs" />
+    <Compile Include="Models\Weather\Clouds.cs" />
+    <Compile Include="Models\Weather\Coord.cs" />
+    <Compile Include="Models\Weather\IWeatherMetrics.cs" />
+    <Compile Include="Models\Weather\Main.cs" />
+    <Compile Include="Models\Weather\Rain.cs" />
+    <Compile Include="Models\Weather\Sys.cs" />
+    <Compile Include="Models\Weather\Weather.cs" />
+    <Compile Include="Models\Weather\WeatherMetricsContainer.cs" />
+    <Compile Include="Models\Weather\Wind.cs" />
     <Compile Include="Parsers\InputMessage.cs" />
     <Compile Include="Parsers\InputMessageParser.cs" />
+    <Compile Include="Parsers\Interfaces\IWeatherArguments.cs" />
+    <Compile Include="Parsers\Interfaces\IWeatherArgumentsParser.cs" />
     <Compile Include="Parsers\WeatherArguments.cs" />
     <Compile Include="Parsers\WeatherArgumentsParser.cs" />
     <Compile Include="Program.cs" />
@@ -87,7 +93,7 @@
     <Compile Include="Repository\OpenWeatherMapRepository.cs" />
     <Compile Include="Service\IWeatherService.cs" />
     <Compile Include="Service\WeatherService.cs" />
-    <Compile Include="WaetherMessageBuider.cs" />
+    <Compile Include="Builders\WeatherMessageBuider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

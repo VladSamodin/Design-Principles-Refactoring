@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace BecomeSolid.Day1.Parsers
 {
-    class WeatherArgumentsParser
+    class WeatherArgumentsParser : IWeatherArgumentsParser<WeatherArguments>
     {
-        public virtual WeatherArguments Parse(string arguments)
+        private string defaultCity;
+
+        public WeatherArgumentsParser(string defaultCity)
+        {
+            this.defaultCity = defaultCity;
+        }
+
+        public WeatherArguments Parse(string arguments)
         {
             //string[] parts = arguments.Split(new char[] { ' ' }, 2, StringSplitOptions.RemoveEmptyEntries);
             //string city = parts[0];
@@ -17,7 +24,7 @@ namespace BecomeSolid.Day1.Parsers
             //    date = DateTime.Today;
             //return new WeatherArguments { City = city, Date = date };
 
-            string city = arguments ?? "Minsk"; // стоит ли тут задавать дефолтное значение?
+            string city = arguments ?? defaultCity; // стоит ли тут задавать дефолтное значение?
             return new WeatherArguments { City = city };
         }
     }

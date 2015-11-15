@@ -13,7 +13,6 @@ namespace BecomeSolid.Day1.Commands
     {
         public AiCommand(Api bot) : base(bot) { }
 
-        //public override async Task ExecuteAsync(string arguments, Update update)
         public override async Task ExecuteAsync(Dictionary<string, object> context)
         {
             string arguments = context["argumentsString"] as string;

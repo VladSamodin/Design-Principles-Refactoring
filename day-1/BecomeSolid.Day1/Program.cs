@@ -7,6 +7,8 @@ using BecomeSolid.Day1.Parsers;
 using System.Collections.Generic;
 using BecomeSolid.Day1.Service;
 using BecomeSolid.Day1.Repository;
+using BecomeSolid.Day1.Builders;
+using BecomeSolid.Day1.Models;
 
 namespace BecomeSolid.Day1
 {
@@ -59,7 +61,13 @@ namespace BecomeSolid.Day1
 
         static void InitCommandContainer(CommandContainer CommandContainer, Api bot)
         {
-            CommandContainer.RegistreCommand("/weather", new WeatherCommand(bot, new WeatherService(new OpenWeatherMapRepository())));
+            CommandContainer.RegistreCommand("/weather"
+                , new WeatherCommand<WeatherMetricsContainer>(bot
+                    , new WeatherService(new OpenWeatherMapRepository())
+                    , new WeatherArgumentsParser("Minsk")
+                    , new WeatherMessageBuider()
+                )
+            );
         }
 
     }

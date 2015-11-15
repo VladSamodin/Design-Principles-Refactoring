@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BecomeSolid.Day1.Parsers
+namespace BecomeSolid.Day1.Repository
 {
-    class WeatherArguments : IWeatherArguments
+    interface IRateRepository
     {
-        public string City { get; set; }
+        string GetRateJson(string cityName);
     }
 }

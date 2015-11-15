@@ -1,32 +1,33 @@
-﻿using System;
+﻿using BecomeSolid.Day1.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BecomeSolid.Day1
+namespace BecomeSolid.Day1.Builders
 {
-    public class WaetherMessageBuider
+    public class WeatherMessageBuider : IWeatherMessageBuilder<WeatherMetricsContainer>
     {
-        //private const string messagePattern = "In {0} {1} and the temperature is {2}°C";
+        private const string messagePattern = "In {0} {1} and the temperature is {2}°C";
 
         private string cityName;
         private string description;
         private double temperature;
 
-        public WaetherMessageBuider SetCityName(string cityName)
+        public WeatherMessageBuider SetCityName(string cityName)
         {
             this.cityName = cityName;
             return this;
         }
 
-        public WaetherMessageBuider SetDescription(string description)
+        public WeatherMessageBuider SetDescription(string description)
         {
             this.description = description;
             return this;
         }
 
-        public WaetherMessageBuider SetTemperature(double temperature)
+        public WeatherMessageBuider SetTemperature(double temperature)
         {
             this.temperature = temperature;
             return this;
@@ -47,9 +48,9 @@ namespace BecomeSolid.Day1
             return message.ToString();
         }
 
-        //public string Build(string cityName, string description, double temperature)
-        //{
-        //    return String.Format(messagePattern, cityName, description, temperature.ToString("+#;-#"));
-        //}
+        public string Build(WeatherMetricsContainer weatherMetrics)
+        {
+            return String.Format(messagePattern, weatherMetrics.name, weatherMetrics.weather.First().description, weatherMetrics.main.temp.ToString("+#;-#"));
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BecomeSolid.Day1.Models
 {
-    public class WeatherMetricsContainer
+    public class WeatherMetricsContainer : IWeatherMetrics
     {
         public Coord coord { get; set; }
         public Weather[] weather { get; set; }

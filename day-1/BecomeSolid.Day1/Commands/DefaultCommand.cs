@@ -12,7 +12,6 @@ namespace BecomeSolid.Day1.Commands
     {
         public DefaultCommand(Api bot) : base(bot) { }
 
-        //public override async Task ExecuteAsync(string argumentsString, Update update)
         public override async Task ExecuteAsync(Dictionary<string, object> context)
         {
             var update = context["update"] as Update;
