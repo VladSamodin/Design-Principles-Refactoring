@@ -22,6 +22,8 @@ namespace BecomeSolid.Day1.Service
         public CurrencyInfo GetRate(IEnumerable<string> currencies)
         {
             var rateJson = repository.GetRateJson(currencies);
+            rateJson = rateJson.Replace("\"rate\":{", "\"rate\":[{");
+            rateJson = rateJson.Replace("}}}}", "}]}}}");
             var currencyInfo = JsonConvert.DeserializeObject<CurrencyInfo>(rateJson);
             return currencyInfo;
         }

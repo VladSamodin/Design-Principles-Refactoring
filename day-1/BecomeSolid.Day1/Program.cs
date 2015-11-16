@@ -9,6 +9,7 @@ using BecomeSolid.Day1.Service;
 using BecomeSolid.Day1.Repository;
 using BecomeSolid.Day1.Builders;
 using BecomeSolid.Day1.Models;
+using BecomeSolid.Day1.Models.Rate;
 
 namespace BecomeSolid.Day1
 {
@@ -68,6 +69,14 @@ namespace BecomeSolid.Day1
                     , new WeatherMessageBuider()
                 )
             );
+            CommandContainer.RegistreCommand("/rate"
+                , new RateCommand<CurrencyInfo>(bot
+                    , new RateService(new YahooapisRateRepository())
+                    , new RateArgumentsParser()
+                    , new RateMessageBuilder()
+                )
+            );
+
         }
 
     }
